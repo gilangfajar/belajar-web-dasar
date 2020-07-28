@@ -1,0 +1,16 @@
+<!-- Declaration-->
+//Bagian deklarasi terdiri dari pasangan properti dengan nilainya. Kita bisa menetapkan lebih dari satu deklarasi pada satu rule; contohnya seperti pada selector p di atas, kita menetapkan lebih dari satu deklarasi pada declaration block. Setiap deklarasinya harus diakhiri dengan semicolon (;) sebagai tanda diakhirinya sebuah deklarasi.
+
+Karena CSS tidak memperhatikan spasi (sama seperti bahasa pemrograman pada umumnya), sebaiknya penulisan deklarasi selalu diawali dengan garis baru, agar mudah dibaca dan dipahami.
+p {
+   font-size: small;
+   font-family: sans-serif;
+   /* deklarasikan nilai properti lainnya pada garis baru */
+}
+//Tapi ingat, walaupun CSS tidak memperhatikan spasi, untuk satuan nilai seperti px, em dan lainnya harus dituliskan tanpa spasi pada nilainya. Contohnya:
+h1 {
+   margin: 2em;
+}
+h1 {
+   margin: 2 em; /* Deklarasi tidak akan berfungsi karena terdapat spasi antara nilai dan satuan */
+}

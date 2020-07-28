@@ -1,0 +1,192 @@
+<!--Type Selector-->
+//Type Selector menggunakan nama elemen sebagai target untuk diterapkannya rule. Dengan kata lain, ketika menggunakan selector ini tentu rule akan diterapkan pada seluruh elemen target yang ada pada dokumen HTML. Contohnya sebagai berikut:
+<!doctype html>
+<html lang="en">
+<head>
+   <title>Judul Dokumen</title>
+   <style>
+      /* Semua elemen span */
+       span {
+           color: red;
+       }
+   </style>
+</head>
+<body>
+<span>Ini merupakan sebuah teks yang berada pada elemen span. Seharusnya elemen ini ditampilkan dengan warna teks merah.</span>
+<p>Ini merupakan sebuah teks yang berada pada elemen paragraf, teks ini tidak seharusnya tidak akan terpengaruh oleh rule.</p>
+<span>Ini merupakan sebuah teks yang berada pada elemen span lainnya. Seharusnya elemen ini ditampilkan dengan warna teks merah juga.</span>
+</body>
+</html>
+//Jika berkas tersebut dibuka pada browser, maka teks yang berada pada setiap elemen <span> akan berwarna merah.
+<!--Class Sector-->
+//Class selector menetapkan target elemen berdasarkan nilai dari atribut class yang diterapkan pada elemennya. Untuk penulisan selector, awali dengan tanda titik (.) kemudian lanjutkan dengan nama class-nya. Contoh:
+<!doctype html>
+<html lang="en">
+<head>
+   <title>Judul Dokumen</title>
+   <style>
+       .red {
+           color: red;
+       }
+ 
+       .skyblue-bg {
+           background-color: skyblue;
+       }
+ 
+       .fancy {
+           font-weight: bold;
+           text-shadow: 4px 4px 3px #77f;
+       }
+   </style>
+</head>
+<body>
+<p class="red">Paragraf dengan teks berwarna merah</p>
+<p class="skyblue-bg">Paragraf dengan background berwarna biru langit</p>
+<p class="fancy">Paragraf dengan gaya fancy</p>
+<p>Paragraf yang menampilkan teks dengan warna standar tanpa menerapkan styling</p>
+</body>
+</html>
+
+//Kita juga bisa menargetkan elemen secara spesifik yang memiliki sebuah class. Bagaimana jika kita ingin menerapkan gaya yang berbeda ketika menggunakan kelas bergaya keren alias fancy pada sebuah paragraf? untuk melakukannya, pada selector kita tuliskan nama elemen target diikuti dengan titik (.) kemudian nama kelasnya. Perhatikan contoh berikut:
+<!doctype html>
+<html lang="en">kita
+<head>
+   <title>Judul Dokumen</title>
+   <style>
+       .fancy {
+           font-weight: bold;
+           text-shadow: 4px 4px 3px #77f;
+       }
+ 
+       p.fancy {
+           text-shadow: 4px 4px 3px #00c8eb;
+       }
+   </style>
+</head>
+<body>
+<h1 class="fancy">Heading dengan teks bergaya fancy</h1>
+<p class="fancy">Paragraf dengan teks bergaya fancy</p>
+</body>
+</html>
+
+<!--ID Selector-->
+//ID selector menetapkan target elemen berdasarkan nilai dari atribut id yang diterapkan pada elemennya. Sama seperti class, atribut id dapat diterapkan pada seluruh elemen HTML, dan kebanyakan atribut ini digunakan untuk memberikan sebuah arti pada generic element seperti <div> dan <span>. Namun atribut id ini tidak bersifat shareable, yang artinya nilai id ini harus unik dan digunakan pada satu elemen saja.
+
+Untuk menetapkan selector dengan menggunakan id, kita gunakan tanda octothorpe (#) atau lebih familiar disebut dengan hash. Berikut contohnya:
+<!doctype html>
+<html lang="en">
+<head>
+   <title>Judul Dokumen</title>
+   <style>
+      #special {
+          background-color: skyblue;
+      }
+   </style>
+</head>
+<body>
+<div id="special">
+   <p>Ini merupakan konten di dalam sebuah div yang diberi id special.</p>
+</div>
+<div>
+   <p>Ini merupakan konten di dalam sebuah div biasa.</p>
+</div>
+</body>
+</html>
+//Yang harus kita perhatikan kembali adalah id ini bersifat unik. Jika kita ingin menerapkan sebuah rule pada banyak elemen, sebaiknya gunakan atribut class, bukan dengan id.
+<!doctype html>
+<html lang="en">
+<head>
+   <title>Judul Dokumen</title>
+   <style>
+      #special {
+          background-color: skyblue;
+      }
+   </style>
+</head>
+<body>
+<div id="special">
+   <p>Ini merupakan konten di dalam sebuah div yang diberi id special.</p>
+</div>
+<div id="special"> <!-- ini merupakan contoh yang salah dalam penerapan id -->
+   <p>Ini merupakan konten di dalam sebuah div biasa.</p>
+</div>
+</body>
+</html>
+<!--Attribute Selector-->
+//Attribute selector merupakan cara menetapkan target elemen berdasarkan sebuah atribut yang digunakan atau bahkan bisa lebih spesifik dengan nilainya. Contohnya sebagai berikut:
+<!doctype html>
+<html lang="en">
+<head>
+   <title>Judul Dokumen</title>
+   <style>
+ 
+       /* <a> element yang menerapkan href attribut */
+       a[href] {
+           color: blue;
+       }
+ 
+       /* <a> element yang menerapkan nilai pada href dengan awalan "#" */
+       a[href^="#"] {
+           background-color: gold;
+       }
+ 
+       /* <a> element yang menerapkan nilai pada href yang mengandung teks "example" */
+       a[href*="example"] {
+           background-color: silver;
+       }
+ 
+       /* <a> element yang menerapkan nilai pada href yang mengandung teks "insensitive" tidak mementingkan huruf kapital*/
+       a[href*="insensitive" i] {
+           color: cyan;
+       }
+ 
+       /* <a> element yang menerapkan nilai pada href dengan akhiran ".org" */
+       a[href$=".org"] {
+           color: red;
+       }
+   </style>
+</head>
+<body>
+<ul>
+   <ul>
+       <li><a href="#internal">Internal link</a></li>
+       <li><a href="http://example.com">Example link</a></li>
+       <li><a href="#InSensitive">Insensitive internal link</a></li>
+       <li><a href="http://example.org">Example org link</a></li>
+   </ul>
+</ul>
+</body>
+</html>
+<!--Pseudo-elemen Selector-->
+//Sama seperti pseudo-class, pseudo-elemen merupakan sebuah elemen “semu” yang sebenarnya ada tetapi tidak tampak secara tertulis pada berkas HTML. Selector ini biasa digunakan ketika kita ingin menambahkan sebuah konten tepat sebelum dan setelah sebuah elemen paragraf. Alhasil kita tidak perlu menuliskan struktur elemen tersebut pada berkas HTML. Cukup manfaatkan pseudo-elemen ::before dan ::after kemudian tuliskan konten tersebut cukup pada CSS. Contohnya kita ingin menambahkan tanda kutip sebelum dan sesudah elemen blockquote. Seperti ini cara menuliskannya:
+blockquote::before,
+blockquote::after {
+   content: '"';
+   font-size: 24px;
+   font-style: italic;
+   font-weight: bold;
+}
+//Dengan menuliskan rule tersebut, elemen <blockquote> memiliki tanda kutip pada awal dan akhir elemennya.
+<blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eius error explicabo ipsum molestiae necessitatibus nesciunt possimus reprehenderit sed voluptates. Aliquam aspernatur autem est nobis officia praesentium quas recusandae rem.</blockquote>
+//Untuk menggunakan pseudo-elemen kita gunakan dua buah tanda titik dua (::) kemudian diikuti dengan pseudo-elemen nya. Sebenarnya kita bisa menggunakan satu buah tanda tanda titik dua (:) namun kita perlu membedakannya dengan pseudo-class. Karena itulah baiknya ketika menggunakan pseudo-elemen, gunakanlah dua buah titik dua (::).
+
+Pseudo-element tidak hanya ::before dan ::after. Dengan pseudo-elemen kita juga dapat menentukan rule pada awal karakter konten elemen.
+<!doctype html>
+<html lang="en">
+<head>
+   <title>Judul Dokumen</title>
+   <style>
+       /* Rule styling akan diterapkan pada karakter pertama disebuah paragraf */
+       p::first-letter {
+           font-size: 32px;
+           font-weight: bold;
+           color: saddlebrown;
+       }
+   </style>
+</head>
+<body>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto deserunt, dicta laudantium quae quam sequi
+   soluta vitae! A, architecto beatae, consequuntur et eveniet fuga laudantium molestias praesentium temporibus, unde
+   velit.</p>
+</body>
+</html>

@@ -1,0 +1,5 @@
+<!--Menghubungkan Berkas CSS dengan HTML-->
+//Setelah kita menuliskan rules pada berkas style.css, langkah selanjutnya adalah menghubungkan berkas style.css tersebut sebagai stylesheet pada berkas HTML agar elemen yang ditampilkan dapat menerapkan rules yang kita tetapkan.
+
+Silakan kita buka kembali berkas index.html, kemudian tambahkan kode berikut di dalam elemen <head>:
+<link rel="stylesheet" href="assets/styles/style.css">
